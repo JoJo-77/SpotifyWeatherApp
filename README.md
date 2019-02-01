@@ -1,1 +1,1 @@
-# SpotifyWeatherApp
+# Spotify Weather App
