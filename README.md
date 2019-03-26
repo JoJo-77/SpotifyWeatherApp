@@ -1,7 +1,7 @@
 # Spotify Weather App
 ## Weather Backend:
 - Requirements:
-  +Python 3.7
+  + Python 3.7
   - Libraries:
     + Beautiful Soup 4
       - MAC OSX/LINUX: ```pip install beautifulsoup4```
