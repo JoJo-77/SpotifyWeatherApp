@@ -3,7 +3,7 @@
 - Libraries:
   + Beautiful Soup 4
     - MAC OSX/LINUX: ```pip install beautifulsoup4```
-    - WINDOWS: TODO
+    - WINDOWS: Dual boot and see above
 - Usage:
   + ``` python3 parse.py```
   + Enter a zipcode
