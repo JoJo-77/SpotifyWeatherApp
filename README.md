@@ -1,9 +1,11 @@
 # Spotify Weather App
 ## Weather Backend:
-- Libraries:
-  + Beautiful Soup 4
-    - MAC OSX/LINUX: ```pip install beautifulsoup4```
-    - WINDOWS: Dual boot and see above
+- Requirements:
+  +Python 3.7
+  - Libraries:
+    + Beautiful Soup 4
+      - MAC OSX/LINUX: ```pip install beautifulsoup4```
+      - WINDOWS: Dual boot and see above
 - Usage:
   + ``` python3 parse.py```
   + Enter a zipcode
