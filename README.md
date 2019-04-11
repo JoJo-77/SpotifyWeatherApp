@@ -2,12 +2,15 @@
 ## Weather Backend:
 - Requirements:
   + Python 3.7
+  + pipenv
+      - MAC OSX/LINUX: ```pipenv install```
+      - WINDOWS: Run linux subsystem or dual boot, follow above.
   - Libraries:
     + Beautiful Soup 4
-      - MAC OSX/LINUX: ```pip install beautifulsoup4```
+      - MAC OSX/LINUX: ```pipenv install beautifulsoup4```
       - WINDOWS: Dual boot and see above
 - Usage:
-  + ``` python3 parse.py```
+  + ``` pipenv run python3 parse.py```
   + Enter a zipcode
   + Location, Weather Description, Temperature in F and C, mood string will be displayed in a dictionary
 - Notes: 
