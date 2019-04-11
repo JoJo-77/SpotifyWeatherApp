@@ -1,6 +1,5 @@
 # Spotify Weather App
-## Weather Backend:
-- Requirements:
+ Requirements:
   + Python 3.7
   - Libraries:
     + Beautiful Soup 4
@@ -9,6 +8,7 @@
   + Make sure to have the latest version of PYTHON 3 installed.
     - Now make sure you have pipenv installed: ```pip3 install pipenv```
     - Now to install all the dependencies: ```pipenv install```
+## Weather Backend:
 - Usage:
   + ``` pipenv run python3 parse.py```
   + Enter a zipcode
