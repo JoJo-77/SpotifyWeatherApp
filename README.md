@@ -1,5 +1,5 @@
 # Spotify Weather App
- Requirements:
+ - Requirements:
   + Python 3.7
   - Libraries:
     + Beautiful Soup 4
