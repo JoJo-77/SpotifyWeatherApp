@@ -2,13 +2,13 @@
 ## Weather Backend:
 - Requirements:
   + Python 3.7
-  + pipenv
-      - MAC OSX/LINUX: ```pipenv install```
-      - WINDOWS: Run linux subsystem or dual boot, follow above.
   - Libraries:
     + Beautiful Soup 4
-      - MAC OSX/LINUX: ```pipenv install beautifulsoup4```
-      - WINDOWS: Dual boot and see above
+    + Django
+- Setup:
+  + Make sure to have the latest version of PYTHON 3 installed.
+    - Now make sure you have pipenv installed: ```pip3 install pipenv```
+    - Now to install all the dependencies: ```pipenv install```
 - Usage:
   + ``` pipenv run python3 parse.py```
   + Enter a zipcode
