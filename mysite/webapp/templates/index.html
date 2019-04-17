@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+{% block body %}
   <head>
     <title>Sunny With a Chance of Bops</title>
   </head>
@@ -8,9 +7,12 @@
   <body style="background-color:powderblue;font-family:verdana">
     <h1>Sunny With a Chance of Bops</h1>
     <br />
-    <form action="/test.html">
-        ZIP Code: <input type="text" name="zip"><br>
-        <input type="submit" value="Submit">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type= "submit">
+        Submit
+      </button>
     </form>
     <br />
     <br />
@@ -19,4 +21,4 @@
   </body>
   </center>
 
-</html>
+{% endblock %}

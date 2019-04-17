@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+{% block body %}
   <head>
     <title>Sunny With a Chance of Bops</title>
   </head>
@@ -8,9 +7,13 @@
   <body style="background-color:powderblue;font-family:verdana">
     <h1>Rainy With a Chance of Bops</h1>
     <br />
-    <form action="/test.html">
-        ZIP Code: <input type="text" name="zip"><br>
-        <input type="submit" value="Submit">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">
+        Submit
+      </button>
+        
     </form>
     <br />
     <br />
@@ -18,5 +21,4 @@
     <iframe src="https://open.spotify.com/embed/user/125001372/playlist/6N3EWQRQCMtrTeO6KSK0wR" width="400" height="480" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </body>
   </center>
-
-</html>
+{% endblock %}
