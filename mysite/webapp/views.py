@@ -27,8 +27,10 @@ def home(request):
             pass
         weather_dict = get_data((request.POST.get('zipcode')))
         weather_dict = get_mood(weather_dict)
+        print(weather_dict)
         mood += weather_dict['mood'] +".html"
     else:
         form = zipform()
+        mood = "home.html"
     return render(request,mood, {'form':form})
 
