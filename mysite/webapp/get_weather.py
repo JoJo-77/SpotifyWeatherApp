@@ -32,27 +32,29 @@ def get_connection(url):
 #Returns updated dictionary of data
 def get_mood(data):
 	#do not allow fall through for hard weathers such as rain, wind, or snow
-	if data["easter_egg"]:
-		data["mood"] = "osrs"
+	try:
+		if data["easter_egg"]:
+			data["mood"] = "osrs"
+			return data
+	except:
+		if "sunny" in str.lower(data["weather"]) or "fair" in str.lower(data["weather"]):
+			data["mood"] = "sunny"
 
-	if "sunny" in str.lower(data["weather"]) or "fair" in str.lower(data["weather"]):
-		data["mood"] = "sunny"
+		if int(data["wind_speed"]) > 15:
+			data["mood"] = "windy"
 
-	if int(data["wind_speed"]) > 15:
-		data["mood"] = "windy"
+		if "rainy" in str.lower(data["weather"]) or "overcast" in str.lower(data["weather"]):
+			data["mood"] = "rainy"
+			return data
 
-	if "rainy" in str.lower(data["weather"]) or "overcast" in str.lower(data["weather"]):
-		data["mood"] = "rainy"
+		if "snowy" in str.lower(data["weather"]):
+			data["mood"] = "snowy"
+			return data
+
+		if "cloudy" in str.lower(data["weather"]) :
+			data["mood"] = "cloudy"
+			return data
 		return data
-
-	if "snowy" in str.lower(data["weather"]):
-		data["mood"] = "snowy"
-		return data
-
-	if "cloudy" in str.lower(data["weather"]) :
-		data["mood"] = "cloudy"
-		return data
-	return data
 
 
 

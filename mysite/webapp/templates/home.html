@@ -1,0 +1,24 @@
+{% block body %}
+  <head>
+    <title>TEST Sunny With a Chance of Bops TEST</title>
+  </head>
+
+  <center>
+  <body style="background-color:powderblue;font-family:verdana">
+    <h1>Sunny With a Chance of Bops</h1>
+    <br />
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type= "submit">
+        Submit
+      </button>
+    </form>
+    <br />
+    <br />
+    <br />
+    Enter a ZIP Code to find a weather based playlist!
+  </body>
+  </center>
+
+{% endblock %}

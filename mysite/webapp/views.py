@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from django.views.generic import TemplateView
+from .forms import zipform
+from .get_weather import *
 
-def index(request):
-    return render(request, 'index.html')
+# Create your views here.
 
 def sunny(request):
     return render(request, 'sunny.html')
@@ -16,4 +17,18 @@ def cloudy(request):
 
 def windy(request):
     return render(request, 'windy.html')
+
+def home(request):
+    weather_dict = None
+    mood = ""
+    if request.method == 'POST':
+        form = zipform(request.POST)
+        if form.is_valid():
+            pass
+        weather_dict = get_data((request.POST.get('zipcode')))
+        weather_dict = get_mood(weather_dict)
+        mood += weather_dict['mood'] +".html"
+    else:
+        form = zipform()
+    return render(request,mood, {'form':form})
 
