@@ -1,3 +1,4 @@
+{% load crispy_forms_tags %}
 {% block body %}
   <head>
     <title>Sunny With a Chance of Bops</title>
@@ -11,7 +12,7 @@
     <br />
     <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ form | crispy}}
       <div class="button">
       <button type="submit" class="btn btn-dark">
         Submit
