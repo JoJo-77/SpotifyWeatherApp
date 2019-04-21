@@ -38,9 +38,16 @@ def main():
 	result = sp.user_playlist(username,list[x])
 	tracks = result['tracks']
 	i = 0
+	print(result)
+	print(tracks)
+	print('test')
 	for i, item in enumerate(tracks['items']):
 		track = item['track']
+		print("test")
+		print(track['external_url'])
 		return track['external_urls']
+
+main()
 
 
 
