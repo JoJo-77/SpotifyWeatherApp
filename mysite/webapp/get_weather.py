@@ -20,7 +20,10 @@ def get_data(input):
 	data["weather"] = soup.find("p", attrs = {"class": "myforecast-current"}).text.strip()
 	data["temperature"] = soup.find("p", attrs = {"class": "myforecast-current-lrg"}).text.strip() + " / " + soup.find("p", attrs = {"class": "myforecast-current-sm"}).text.strip()
 	data["wind_speed"] = soup.findAll("td", attrs = {"class": None})[1].text.strip()
-	data["wind_speed"] = str([int(s) for s in data["wind_speed"].split(" ") if s.isdigit()][0]) 
+	if(data["wind_speed"]) == "Calm":
+		data["wind_speed"] = "0"
+	else:
+		data["wind_speed"] = str([int(s) for s in data["wind_speed"].split(" ") if s.isdigit()][0]) 
 	data["mood"] = None
 	return data
 
@@ -37,10 +40,10 @@ def get_mood(data):
 			data["mood"] = "osrs"
 			return data
 	except:
-		if "sunny" in str.lower(data["weather"]) or "fair" in str.lower(data["weather"]):
+		if "sunny" in str.lower(data["weather"]) or "fair" in str.lower(data["weather"]) or "a few clouds" in str.lower(data["weather"])  :
 			data["mood"] = "sunny"
 
-		if int(data["wind_speed"]) > 15:
+		if int(data["wind_speed"]) > 15 or "breezy" in str.lower(data["weather"]):
 			data["mood"] = "windy"
 
 		if "rainy" in str.lower(data["weather"]) or "overcast" in str.lower(data["weather"]):
