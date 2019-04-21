@@ -37,10 +37,10 @@ def get_mood(data):
 			data["mood"] = "osrs"
 			return data
 	except:
-		if "sunny" in str.lower(data["weather"]) or "fair" in str.lower(data["weather"]):
+		if "sunny" in str.lower(data["weather"]) or "fair" in str.lower(data["weather"]) or "a few clouds" in str.lower(data["weather"])  :
 			data["mood"] = "sunny"
 
-		if int(data["wind_speed"]) > 15:
+		if int(data["wind_speed"]) > 15 or "breezy" in str.lower(data["weather"]):
 			data["mood"] = "windy"
 
 		if "rainy" in str.lower(data["weather"]) or "overcast" in str.lower(data["weather"]):
