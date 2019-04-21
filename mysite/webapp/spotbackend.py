@@ -5,9 +5,9 @@ import spotipy
 import webbrowser
 import spotipy.util as util
 from json.decoder import JSONDecodeError
-from get_weather import data
+from get_weather import *
 
-def main()
+def main():
 	#client ID = 249fc495e1e34f8e81e25b2b0920f79b
 	username = "581hxrshcy0yznmfveoc4cwl4"   #prob. a string
 
@@ -39,8 +39,8 @@ def main()
 	tracks = result['tracks']
 	i = 0
 	for i, item in enumerate(tracks['items']):
-        track = item['track']
-        return track['external_urls']
+		track = item['track']
+		return track['external_urls']
 
 
 
