@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup
 import urllib
 
-
+data = {}
 #Populates a dictionary with data from the website, returns None if the connection fails
 def get_data(input):
-	data = {}
 	if input == "swampletics":
 		data["easter_egg"] = "Meet pyletics my python locked ultimate mood playlist website -man"
 		input = 22030

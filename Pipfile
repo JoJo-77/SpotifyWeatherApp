@@ -8,6 +8,7 @@ django = "*"
 beautifulsoup4 = "*"
 django-crispy-forms = "*"
 spotipy = "*"
+pyyaml = "*"
 
 [dev-packages]
 

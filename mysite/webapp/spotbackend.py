@@ -3,15 +3,18 @@ import sys
 import json
 import spotipy
 import webbrowser
+import yaml
 import spotipy.util as util
 from json.decoder import JSONDecodeError
-from get_weather import *
+from get_weather import data
 
 def main():
 	#client ID = 249fc495e1e34f8e81e25b2b0920f79b
 	username = "581hxrshcy0yznmfveoc4cwl4"   #prob. a string
+	with open("config.yaml", 'r') as ymlfile:
+		cfg = yaml.load(ymlfile)
 
-	token = util.prompt_for_user_token(username,'playlist-read-private')
+	token = util.prompt_for_user_token(username,'playlist-read-private', client_id=cfg["SPOTIPY_CLIENT_ID"], client_secret=cfg["SPOTIPY_CLIENT_SECRET"], redirect_uri=cfg["SPOTIPY_REDIRECT_URI"])
 	sp = spotipy.Spotify(auth=token)
 
 	user = sp.current_user()
@@ -38,12 +41,8 @@ def main():
 	result = sp.user_playlist(username,list[x])
 	tracks = result['tracks']
 	i = 0
-	print(result)
-	print(tracks)
-	print('test')
 	for i, item in enumerate(tracks['items']):
 		track = item['track']
-		print("test")
 		print(track['external_url'])
 		return track['external_urls']
 
