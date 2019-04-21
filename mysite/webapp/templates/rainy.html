@@ -7,19 +7,20 @@
   </head>
 
   <center>
-  <body style="background-color:powderblue;font-family:verdana">
+      <body style = "background-image: url(/static/rainy.png); background-size: 100%">
     <h1>Rainy With a Chance of Bops</h1>
     <br />
-    <form method="post">
-      {% csrf_token %}
-      {{ form | crispy}}
-      <div class="button">
-      <button type="submit" class="btn btn-dark">
-        Submit
-      </button>
+    <div class ="row-5">
+      <div class="col-5">
+        <form method="post">
+            {% csrf_token %}
+          {{ form.zipcode | as_crispy_field }}
+          <button type="submit" class="btn btn-dark">
+              Submit
+            </button>
+        </form>
+      </div>
     </div>
-        
-    </form>
     <br />
     <br />
     <br />

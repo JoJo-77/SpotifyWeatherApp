@@ -1,20 +1,30 @@
 {% load crispy_forms_tags %}
-
-{% block body %}
+{% load static %}
+{% block content %}
   <head>
     <title>Sunny With a Chance of Bops</title>
-    <link rel="stylesheet" href="./style.css"  >
+    <link rel="stylesheet" href="{% static styles.css %}" type="text/css" >
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <center>
-  <body style="background-color:powderblue;font-family:verdana">
+      
+  <body style = "background-image: url(/static/weather.jpg); background-size: 100%">
+      
     <h1>Sunny With a Chance of Bops</h1>
     <br />
-    <form method="post">
-      {% csrf_token %}
-      {% crispy form %}
-    </form>
+    <div class ="row-5">
+        <div class="col-5">
+          <form method="post">
+              {% csrf_token %}
+            {{ form.zipcode | as_crispy_field }}
+            <button type="submit" class="btn btn-dark">
+                Submit
+              </button>
+          </form>
+        </div>
+      </div>
+    
     <br />
     <br />
     <br />

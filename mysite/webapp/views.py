@@ -33,4 +33,3 @@ def home(request):
         form = zipform()
         mood = "home.html"
     return render(request,mood, {'form':form})
-

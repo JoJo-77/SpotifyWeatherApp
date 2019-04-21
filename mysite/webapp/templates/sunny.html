@@ -6,16 +6,20 @@
   </head>
 
   <center>
-  <body style="background-color:powderblue;font-family:verdana">
+      <body style = "background-image: url(/static/sunny.jpg); background-size: 100%">
     <h1>Sunny With a Chance of Bops</h1>
     <br />
-    <form method="post" >
-      {% csrf_token %}
-      {{ form | crispy }}
-      <button type="submit" class="btn btn-dark">
-        Submit
-      </button>
-    </form>
+    <div class ="row-5">
+        <div class="col-5">
+          <form method="post">
+              {% csrf_token %}
+            {{ form.zipcode | as_crispy_field }}
+            <button type="submit" class="btn btn-dark">
+                Submit
+              </button>
+          </form>
+        </div>
+      </div>
     <br />
     <br />
     <br />
