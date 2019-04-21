@@ -20,7 +20,10 @@ def get_data(input):
 	data["weather"] = soup.find("p", attrs = {"class": "myforecast-current"}).text.strip()
 	data["temperature"] = soup.find("p", attrs = {"class": "myforecast-current-lrg"}).text.strip() + " / " + soup.find("p", attrs = {"class": "myforecast-current-sm"}).text.strip()
 	data["wind_speed"] = soup.findAll("td", attrs = {"class": None})[1].text.strip()
-	data["wind_speed"] = str([int(s) for s in data["wind_speed"].split(" ") if s.isdigit()][0]) 
+	if(data["wind_speed"]) == "Calm":
+		data["wind_speed"] = "0"
+	else:
+		data["wind_speed"] = str([int(s) for s in data["wind_speed"].split(" ") if s.isdigit()][0]) 
 	data["mood"] = None
 	return data
 
