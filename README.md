@@ -8,6 +8,8 @@
   + Make sure to have the latest version of PYTHON 3 installed.
     - Now make sure you have pipenv installed: ```pip3 install pipenv```
     - Now to install all the dependencies: ```pipenv install```
+- Usage:
+  + ``` pipenv run python3 mysite/manage.py runserver
 ## Weather Backend:
 - Usage:
   + ``` pipenv run python3 parse.py```
