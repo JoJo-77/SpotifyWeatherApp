@@ -6,15 +6,16 @@ import webbrowser
 import yaml
 import spotipy.util as util
 from json.decoder import JSONDecodeError
-from get_weather import data
+from .get_weather import *
+from .config import *
 
-def main():
+def get_tracks(input):
 	#client ID = 249fc495e1e34f8e81e25b2b0920f79b
+	#data = get_data(input)
+	data = input
 	username = "581hxrshcy0yznmfveoc4cwl4"   #prob. a string
-	with open("config.yaml", 'r') as ymlfile:
-		cfg = yaml.load(ymlfile)
 
-	token = util.prompt_for_user_token(username,'playlist-read-private', client_id=cfg["SPOTIPY_CLIENT_ID"], client_secret=cfg["SPOTIPY_CLIENT_SECRET"], redirect_uri=cfg["SPOTIPY_REDIRECT_URI"])
+	token = util.prompt_for_user_token(username,'playlist-read-private', client_id=SPOTIPY_CLIENT_ID, client_secret=SPOTIPY_CLIENT_SECRET, redirect_uri=SPOTIPY_REDIRECT_URI)
 	sp = spotipy.Spotify(auth=token)
 
 	user = sp.current_user()
@@ -37,22 +38,22 @@ def main():
 	if data["mood"] == "windy":
 		x =4 
 	
-	x = 1
 	result = sp.user_playlist(username,list[x])
 	tracks = result['tracks']
 	i = 0
 	for i, item in enumerate(tracks['items']):
 		track = item['track']
-		print(track['external_url'])
+		#print(track['external_urls'])
 		return track['external_urls']
 
-main()
-
-
-
-
-
-
+#testing stuff don't mind it
+"""data1 = get_data("20147")
+data1 = get_mood(data1) 
+data2 = get_tracks(data1)
+track = json.dumps(data2["spotify"])
+track2 = {}
+track2['current'] = track.replace("https://open.spotify.com/track/", '')
+print(track2)"""
 
 
 
