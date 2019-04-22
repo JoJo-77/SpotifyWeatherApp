@@ -13,9 +13,11 @@ from .spotbackend import *
 weather_dict  = {}
 track_list = {}
 
-def homeSong(request):
+class to_string:
+    pass
+
+def home(request):
     weather_dict = {}
-    track_list = {}
     mood = ""
     if request.method == 'POST':
         form = zipform(request.POST)
@@ -29,31 +31,30 @@ def homeSong(request):
             print(weather_dict)
             print("zip: " + str(request.POST.get('zipcode')))
             print("weather: ", weather_dict['weather'])
-            getTracks()
             if weather_dict["mood"] is not None:
-                mood += weather_dict['mood'] +"Song.html"
+                mood += weather_dict['mood'] +".html"
             else:
-                weather_dict["mood"] = "sunnySong.html"
+                weather_dict["mood"] = "sunny.html"
         except:
             print("issue finding zipcode")
-            mood = "homeSong.html"
+            mood = "home.html"
     else:
         form = zipform()
-        mood = "homeSong.html"
+        mood = "home.html"
     weather_dict['form'] = form
     return render(request,mood,context = weather_dict)
 
 def sunnySong(request):
-    return render(request, 'sunnySong.html', context = (weather_dict, track_list))
+    return render(request, 'sunnySong.html', context = weather_dict)
 
 def rainySong(request):
-    return render(request, 'rainySong.html', context = (weather_dict, track_list))
+    return render(request, 'rainySong.html', context = weather_dict)
 
 def cloudySong(request):
-    return render(request, 'cloudySong.html', context = (weather_dict, track_list))
+    return render(request, 'cloudySong.html', context = weather_dict)
 
 def windySong(request):
-    return render(request, 'windySong.html', context = (weather_dict, track_list))
+    return render(request, 'windySong.html', context = weather_dict)
 
 def sunny(request):
     return render(request, 'sunny.html',context = weather_dict)
@@ -62,12 +63,12 @@ def rainy(request):
     return render(request, 'rainy.html')
 
 def cloudy(request):
-    return render(request, 'cloudy.html', context = (weather_dict, track_list))
+    return render(request, 'cloudy.html', context = weather_dict)
 
 def windy(request):
     return render(request, 'windy.html')
 
-def home(request):
+def homeSong(request):
     weather_dict = {}
     trackString = ""
     trackToDict = {}
@@ -90,23 +91,25 @@ def home(request):
             track = get_tracks(weather_dict)
             trackString = json.dumps(track['spotify'])
             trackString = trackString.replace("https://open.spotify.com/track/", "")
-            print(trackString)
             key = "track"
-            trackToDict[key] = trackString
-            trackToDict = json.dumps(trackToDict)
-            weather_dict['current'] = trackString
+            print(trackString) 
+            #trackToDict = json.dumps(trackString)
+            trackToDict = json.loads(trackString)
+            print(trackToDict)
+            print(trackString)
+            weather_dict['current'] = trackToDict
             print(weather_dict['current'])
             #weather_dict['current'] = trackString.replace("https//open.spotify.com/track/", "https://open.spotify.com/embed/track/")
             #print(trackString)
             if weather_dict["mood"] is not None:
-                mood += weather_dict['mood'] +".html"
+                mood += weather_dict['mood'] +"Song.html"
             else:
-                weather_dict["mood"] = "sunny.html"
+                weather_dict["mood"] = "sunnySong.html"
         except Exception as e:
             print(e)
-            mood = "home.html"
+            mood = "homeSong.html"
     else:
         form = zipform()
-        mood = "home.html"
+        mood = "homeSong.html"
     weather_dict['form'] = form
     return render(request,mood,context = weather_dict)
