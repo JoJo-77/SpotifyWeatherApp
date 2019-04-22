@@ -47,14 +47,6 @@ def get_tracks(input):
 		return track['external_urls']
 
 #testing stuff don't mind it
-"""data1 = get_data("20147")
-data1 = get_mood(data1) 
-data2 = get_tracks(data1)
-track = json.dumps(data2["spotify"])
-track2 = {}
-track2['current'] = track.replace("https://open.spotify.com/track/", '')
-print(track2)"""
-
 
 
 

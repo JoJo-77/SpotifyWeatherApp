@@ -13,6 +13,5 @@ urlpatterns = [
     path('cloudySong', views.cloudySong, name = "cloudySong"),
     path('rainySong', views.rainySong, name = "rainySong"),
     path('windySong', views.windySong, name = "windySong"),
-    re_path(r'^(?P<current>)', TemplateView.as_view(template_name="cloudy.html"), name="artist")
 
 ]

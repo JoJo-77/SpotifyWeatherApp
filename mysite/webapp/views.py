@@ -91,16 +91,8 @@ def homeSong(request):
             track = get_tracks(weather_dict)
             trackString = json.dumps(track['spotify'])
             trackString = trackString.replace("https://open.spotify.com/track/", "")
-            key = "track"
-            print(trackString) 
-            #trackToDict = json.dumps(trackString)
             trackToDict = json.loads(trackString)
-            print(trackToDict)
-            print(trackString)
             weather_dict['current'] = trackToDict
-            print(weather_dict['current'])
-            #weather_dict['current'] = trackString.replace("https//open.spotify.com/track/", "https://open.spotify.com/embed/track/")
-            #print(trackString)
             if weather_dict["mood"] is not None:
                 mood += weather_dict['mood'] +"Song.html"
             else:
