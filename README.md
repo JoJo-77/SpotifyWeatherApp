@@ -8,14 +8,16 @@
   + Make sure to have the latest version of PYTHON 3 installed.
     - Now make sure you have pipenv installed: ```pip3 install pipenv```
     - Now to install all the dependencies: ```pipenv install```
+- Usage:
+  + Run ``` pipenv run python3 mysite/manage.py runserver ```
+  + Visit [http://127.0.0.1:8000/webapp/home](http://127.0.0.1:8000/webapp/home) in your browser
 ## Weather Backend:
 - Usage:
   + ``` pipenv run python3 parse.py```
   + Enter a zipcode
   + Location, Weather Description, Temperature in F and C, mood string will be displayed in a dictionary
 - Notes: 
-  + Still needs to be integrated with other parts of website. So far all that this does is take in user input and print to a terminal without saving any data. 
-  + Updated to only be 3 individual functions that return a dictionary of data weather data from the website
+  + Fully integrated into website, no longer a standalone script so above does not work
 
 ## Links:
 - Playlists:
