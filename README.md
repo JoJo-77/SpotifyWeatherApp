@@ -17,8 +17,7 @@
   + Enter a zipcode
   + Location, Weather Description, Temperature in F and C, mood string will be displayed in a dictionary
 - Notes: 
-  + Still needs to be integrated with other parts of website. So far all that this does is take in user input and print to a terminal without saving any data. 
-  + Updated to only be 3 individual functions that return a dictionary of data weather data from the website
+  + Fully integrated into website, no longer a standalone script so above does not work
 
 ## Links:
 - Playlists:
