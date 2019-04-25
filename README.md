@@ -10,7 +10,6 @@
     - Now to install all the dependencies: ```pipenv install```
 - Usage:
   + Run ``` python3 run.py ```
-  + Visit [http://127.0.0.1:8000/webapp/home](http://127.0.0.1:8000/webapp/home) in your browser
 ## Weather Backend:
 - Usage:
   + ``` pipenv run python3 parse.py```
