@@ -17,11 +17,13 @@ class InputZIP(unittest.TestCase):
 		self.driver.maximize_window()
 		self.driver.get("http://127.0.0.1:8000/webapp/home")
 	def test_putzip(self):
-		element = driver.find_element_by_id("zipcode")
+		#element = driver.find_element_by_id("zipcode")
+		element = self.driver.find_element_by_name("zipcode")
 		element.send_keys("22030")
-		element = driver.find_element_by_class_name("btn btn-dark")
-		element.click()
-		assert "https://open.spotify.com/embed" in driver.page_source
+		#element = self.driver.find_element_by_class_name("btn btn-dark")
+		#element.click()
+		element.submit()
+		assert "https://open.spotify.com/embed" in self.driver.page_source
 	def tearDown(self):
 		self.driver.quit()
 
