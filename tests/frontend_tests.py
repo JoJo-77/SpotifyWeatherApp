@@ -3,7 +3,7 @@ from selenium import webdriver
 import unittest
 
 # These tests all require that you have Chrome installed.
-# If you use a different browser, try using these instead:
+# If you use a different browser, try replacing webdriver.Chrome() with
 # webdriver.Firefox() or webdriver.InternetExplorer()
 class GetWebpage(unittest.TestCase):
 	def setUp(self):
